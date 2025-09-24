@@ -428,6 +428,24 @@ function startScroll(text) {
   newsEl.style.animation = `scroll linear ${duration}s 1`;
 }
 
+// 뉴스 가로 사이즈 자동조절
+if (data.mapSize !== undefined) {
+    container.style.width = data.mapSize + "px";
+    container.style.height = data.mapSize + "px";
+
+    // 뉴스 래퍼의 넓이를 지도 크기에 맞춰 갱신
+    const wrapper = document.getElementById("wrapper");
+    wrapper.style.width = `calc(100vw - ${data.mapSize}px)`;
+
+    if (lastDistanceMeters !== null) updateDistanceText(lastDistanceMeters);
+
+    // 주소도 다시 갱신
+    //if (marker) {
+        //const pos = marker.getPosition().toJSON();
+        //updateAddress(pos.lat, pos.lng);
+    //}
+}
+
 // 초기 실행
 loadNews();
   
@@ -438,15 +456,16 @@ body{margin:0;padding:0;min-height:100vh;}
 #map{width:200px;height:200px;border:0;border-radius:0px;position:absolute;top:0;right:0;}
 .gm-style-cc{bottom:-100px!important; right:-100px!important;}
 
+/* ----------------------- 뉴스 -------------------------- */
 #wrapper {
   white-space: nowrap;
   overflow: hidden;
-  position: fixed;   /* 화면에 고정 */
-  top: 0;         /* 화면 상단 */
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100vw;
   height: 40px;
-  z-index: 9999;     /* 다른 요소보다 위에 */
+  z-index: 9999;
+  background: transparent;
 }
 
 #news {
