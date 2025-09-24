@@ -444,11 +444,6 @@ body{margin:0;padding:0;min-height:100vh;}
 .gm-style-cc{bottom:-100px!important; right:-100px!important;}
 
 /* ----------------------- 뉴스 -------------------------- */
-html {
-    margin: 0;
-    padding: 0;
-}
-
 #wrapper {
   white-space: nowrap;
   overflow: hidden;
@@ -471,6 +466,7 @@ html {
   backface-visibility: hidden;
   position: absolute;
   top: 0;
+  transform: translateY(-1px); /* 필요시 조정 */
   white-space: nowrap;
   animation-name: scroll;
   animation-timing-function: linear;
