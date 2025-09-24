@@ -308,6 +308,11 @@ window.onload = function(){
         if(data.mapSize!==undefined){
             container.style.width=data.mapSize+"px";
             container.style.height=data.mapSize+"px";
+
+			// 뉴스 영역도 지도 크기에 맞게 조정
+        	const wrapper = document.getElementById("wrapper");
+        	wrapper.style.width = `calc(100vw - ${data.mapSize}px)`;
+			
             if(lastDistanceMeters!==null) updateDistanceText(lastDistanceMeters);
         
             // ?? 주소도 다시 갱신
