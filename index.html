@@ -428,24 +428,6 @@ function startScroll(text) {
   newsEl.style.animation = `scroll linear ${duration}s 1`;
 }
 
-// 뉴스 가로 사이즈 자동조절
-if (data.mapSize !== undefined) {
-    container.style.width = data.mapSize + "px";
-    container.style.height = data.mapSize + "px";
-
-    // 뉴스 래퍼의 넓이를 지도 크기에 맞춰 갱신
-    const wrapper = document.getElementById("wrapper");
-    wrapper.style.width = `calc(100vw - ${data.mapSize}px)`;
-
-    if (lastDistanceMeters !== null) updateDistanceText(lastDistanceMeters);
-
-    // 주소도 다시 갱신
-    //if (marker) {
-        //const pos = marker.getPosition().toJSON();
-        //updateAddress(pos.lat, pos.lng);
-    //}
-}
-
 // 초기 실행
 loadNews();
   
